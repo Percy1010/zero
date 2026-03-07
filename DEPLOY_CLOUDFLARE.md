@@ -7,7 +7,7 @@
 在项目目录执行：
 
 ```bash
-cd /Users/Percy/03_vibe_coding/zero_next/02code/zeroto
+cd /Users/Percy/03_vibe_coding/zero_next
 npm install
 npm run docs:build
 ```
@@ -27,27 +27,23 @@ npm run docs:build
 ### 1.2 本地推送命令（新仓库）
 
 ```bash
-cd /Users/Percy/03_vibe_coding/zero_next/02code/zeroto
-
-# 初始化 git（如果还没初始化）
-git init
+cd /Users/Percy/03_vibe_coding/zero_next
 
 # 提交代码
 git add .
 git commit -m "feat: initial zeroto docs site"
 
 # 绑定远程（替换成你的地址）
-git branch -M main
-git remote add origin https://github.com/<你的GitHub用户名>/zeroto.git
+git remote set-url origin https://github.com/<你的GitHub用户名>/zeroto.git
 
 # 推送
-git push -u origin main
+git push
 ```
 
 如果你使用 SSH，把 remote 改成：
 
 ```bash
-git remote add origin git@github.com:<你的GitHub用户名>/zeroto.git
+git remote set-url origin git@github.com:<你的GitHub用户名>/zeroto.git
 ```
 
 ## 2. 连接 Cloudflare Pages（你需要操作）
@@ -66,8 +62,7 @@ git remote add origin git@github.com:<你的GitHub用户名>/zeroto.git
 - Build command: `npm run docs:build`
 - Build output directory: `docs/.vitepress/dist`
 - Root directory:
-  - 如果 GitHub 仓库根目录就是本项目：留空
-  - 如果仓库根目录是 `zero_next`，项目在子目录：填 `02code/zeroto`
+  - 当前仓库结构为项目根目录，保持留空即可
 
 环境变量（Environment variables）新增：
 
@@ -119,7 +114,7 @@ Cloudflare Pages 会自动重新构建并发布。
 
 ### Q1: 构建失败，提示找不到 package.json
 - 原因：Root directory 配错。
-- 解决：把 Root directory 改成 `02code/zeroto`（仅当仓库根目录不是项目目录时）。
+- 解决：当前项目应保持 Root directory 为空（仓库根目录）。
 
 ### Q2: 构建失败，Node 版本问题
 - 解决：在 Pages 环境变量里加 `NODE_VERSION=20`。

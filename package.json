@@ -4,6 +4,8 @@
   "private": true,
   "description": "Zeroto - 职业教程站（AIGC 首发）",
   "scripts": {
+    "predocs:dev": "node scripts/generate-knowledge-base.mjs",
+    "predocs:build": "node scripts/generate-knowledge-base.mjs",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"

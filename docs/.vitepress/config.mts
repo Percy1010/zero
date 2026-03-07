@@ -78,7 +78,7 @@ function buildItems(absDir: string, relDirFromDocs: string, dirDepth: number): D
 
   if (files.includes('index.md')) {
     items.push({
-      text: dirDepth === 1 ? '概览' : '概览',
+      text: '概览',
       link: fileToLink(path.join(relDirFromDocs, 'index.md'))
     })
   }
@@ -166,10 +166,7 @@ export default defineConfig({
       '/news/': [{ text: '日报资讯', items: [{ text: '资讯首页', link: '/news/' }] }],
       '/community/': [{ text: '社媒交流', items: [{ text: '入口首页', link: '/community/' }] }]
     },
-    search: {
-      provider: 'local'
-    },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/your-name/zeroto' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/Percy1010/zeroto' }],
     outline: {
       label: '本页目录',
       level: [2, 3]
@@ -180,7 +177,7 @@ export default defineConfig({
       next: '下一篇'
     },
     editLink: {
-      pattern: 'https://github.com/your-name/zeroto/edit/main/docs/:path',
+      pattern: 'https://github.com/Percy1010/zeroto/edit/main/docs/:path',
       text: '编辑此页'
     },
     footer: {

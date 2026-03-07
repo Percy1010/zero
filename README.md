@@ -49,3 +49,8 @@ npm run docs:preview
 - 侧边栏会自动扫描 `docs/ai/` 下的 `.md` 文件并生成目录。
 - 新增文章后，不需要手动改 `config.mts`。
 - 标题来源优先级：`frontmatter title` > 一级标题 `#` > 文件名。
+
+## 自动知识库说明（问 AI）
+
+- 每次执行 `npm run docs:dev` 或 `npm run docs:build`，都会自动生成 `docs/public/knowledge-base.json`。
+- 你不需要手动维护知识库文件，只要维护 `docs/ai/`、`docs/news/`、`docs/community/` 的 Markdown 即可。
