@@ -11,7 +11,7 @@
 ## 快速开始
 
 ```bash
-cd /Users/Percy/03_vibe_coding/zero_next/02code/zeroto
+cd /Users/Percy/03_vibe_coding/zero_next
 npm install
 npm run docs:dev
 ```
@@ -36,3 +36,16 @@ npm run docs:preview
 - 如何零成本部署到 Cloudflare Pages
 - 需要你手动操作的每一步点击路径
 - 国内访问速度优化建议
+
+## 文档维护目录
+
+- AIGC 主文档：`docs/ai/`
+- 资讯：`docs/news/`
+- 社群：`docs/community/`
+- 问 AI 配置：`docs/public/ask-ai-config.json`
+
+## 自动侧边栏说明
+
+- 侧边栏会自动扫描 `docs/ai/` 下的 `.md` 文件并生成目录。
+- 新增文章后，不需要手动改 `config.mts`。
+- 标题来源优先级：`frontmatter title` > 一级标题 `#` > 文件名。

@@ -1,0 +1,22 @@
+# Zeroto（零点）
+
+Zeroto is a Chinese tutorial website for professionals. The first domain is AIGC.
+
+## Primary Content
+
+- /ai/ : AIGC documentation hub
+- /ai/concepts/ : Concept tutorials
+- /ai/tools/ : Tool tutorials
+- /ai/methodology/ : Methodology
+- /ai/cases/ : Case studies
+- /ai/opensource/ : Open source references
+- /ai/resources/ : Resource recommendations
+- /ai/logs/ : Field notes
+- /news/ : News updates
+- /community/ : Community entry
+
+## Crawling Notes
+
+- Content is public and crawlable.
+- Prefer sitemap first: https://zeroto.pages.dev/sitemap.xml
+- Follow internal links for deeper pages.
