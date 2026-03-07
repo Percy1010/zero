@@ -152,7 +152,10 @@ function fallbackAnswer(query: string, refs: KnowledgeItem[]): string {
   return `当前模型接口不可用，我先给你站内检索结果：\n\n${bullets}\n\n建议下一步：\n- 先从第 1 条开始，今天做一个最小实践。`
 }
 
-async function askEndpoint(query: string, refs: KnowledgeItem[]): Promise<string | null> {
+async function askEndpoint(
+  query: string,
+  refs: KnowledgeItem[]
+): Promise<{ answer: string | null; error: string | null }> {
   try {
     const res = await fetch('/api/ask-ai', {
       method: 'POST',
@@ -168,14 +171,17 @@ async function askEndpoint(query: string, refs: KnowledgeItem[]): Promise<string
       })
     })
 
-    if (!res.ok) return null
-    const data = await res.json()
-    if (typeof data?.answer === 'string' && data.answer.trim()) {
-      return data.answer
+    const data = await res.json().catch(() => ({}))
+    if (!res.ok) {
+      const reason = [data?.error, data?.detail].filter(Boolean).join('：')
+      return { answer: null, error: reason || `模型接口异常（HTTP ${res.status}）` }
     }
-    return null
+    if (typeof data?.answer === 'string' && data.answer.trim()) {
+      return { answer: data.answer, error: null }
+    }
+    return { answer: null, error: '模型未返回有效内容' }
   } catch {
-    return null
+    return { answer: null, error: '模型接口请求失败，请检查 Cloudflare Functions 与环境变量配置' }
   }
 }
 
@@ -188,12 +194,13 @@ async function send() {
   loading.value = true
 
   const refs = retrieve(q)
-  const endpointAnswer = await askEndpoint(q, refs)
-  const answer = endpointAnswer || fallbackAnswer(q, refs)
+  const endpointResult = await askEndpoint(q, refs)
+  const answer = endpointResult.answer || fallbackAnswer(q, refs)
+  const finalAnswer = endpointResult.error ? `[模型接口状态] ${endpointResult.error}\n\n${answer}` : answer
 
   messages.value.push({
     role: 'assistant',
-    content: answer,
+    content: finalAnswer,
     sources: refs.map((r) => ({ title: r.title, path: r.path }))
   })
 

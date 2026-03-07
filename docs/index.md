@@ -1,7 +1,7 @@
 ---
 layout: home
 
-title: Zeroto 零点
+title: From Zero,To Next
 titleTemplate: AIGC 教程站
 hero:
   name: "Zeroto 零点"
