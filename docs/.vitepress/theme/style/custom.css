@@ -1,0 +1,14 @@
+:root {
+  --vp-c-brand-1: #0a7f52;
+  --vp-c-brand-2: #0d9a64;
+  --vp-c-brand-3: #46b98a;
+}
+
+.vp-doc h1 {
+  letter-spacing: 0.2px;
+}
+
+.kpi-table th,
+.kpi-table td {
+  text-align: left;
+}

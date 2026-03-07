@@ -1,0 +1,38 @@
+[
+  {
+    "domain": "ai",
+    "module": "concepts",
+    "title": "什么是 AIGC",
+    "path": "/ai/concepts/what-is-aigc",
+    "tags": ["概念", "基础", "入门"],
+    "snippet": "AIGC 是人工智能生成文本、图像、音视频和代码等内容的能力。",
+    "content": "建议先建立概念基础，再进入工具篇和方法论。"
+  },
+  {
+    "domain": "ai",
+    "module": "tools",
+    "title": "语法助手",
+    "path": "/ai/tools/document/writing/grammar-assistant",
+    "tags": ["工具", "文档类", "写作"],
+    "snippet": "适用于邮件润色、说明文改写、语气统一。",
+    "content": "建议给出目标读者、文风、长度和禁用词，提高输出稳定性。"
+  },
+  {
+    "domain": "ai",
+    "module": "tools",
+    "title": "Cursor",
+    "path": "/ai/tools/coding/ide/cursor",
+    "tags": ["工具", "编程类", "IDE"],
+    "snippet": "用于快速原型、重构建议和代码解释。",
+    "content": "建议先定义改动边界和验收标准，再让 AI 动手修改。"
+  },
+  {
+    "domain": "global",
+    "module": "news",
+    "title": "日报资讯",
+    "path": "/news/",
+    "tags": ["资讯", "周更"],
+    "snippet": "每周精选，附来源和影响说明。",
+    "content": "只收录可追溯来源，并说明对学习者的实际影响。"
+  }
+]
