@@ -15,9 +15,15 @@
       <header class="drawer-header">
         <div>
           <strong>问 AI</strong>
-          <p>先检索本站文档，再给出回答</p>
+          <p>先检索本站文档，再调用模型回答</p>
         </div>
-        <button class="close-btn" @click="open = false" aria-label="关闭">×</button>
+        <div class="header-actions">
+          <select v-model="provider" aria-label="模型线路">
+            <option value="domestic">国内模型</option>
+            <option value="international">国际模型</option>
+          </select>
+          <button class="close-btn" @click="open = false" aria-label="关闭">×</button>
+        </div>
       </header>
 
       <section class="messages" ref="messagesRef">
@@ -55,6 +61,8 @@
 import { nextTick, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vitepress'
 
+type Provider = 'domestic' | 'international'
+
 type KnowledgeItem = {
   domain: string
   module: string
@@ -63,12 +71,6 @@ type KnowledgeItem = {
   tags: string[]
   snippet: string
   content: string
-}
-
-type AskConfig = {
-  endpoint: string
-  apiKey?: string
-  timeoutMs?: number
 }
 
 type SourceItem = {
@@ -86,13 +88,13 @@ const route = useRoute()
 const open = ref(false)
 const question = ref('')
 const loading = ref(false)
+const provider = ref<Provider>('domestic')
 const messagesRef = ref<HTMLElement | null>(null)
 const knowledge = ref<KnowledgeItem[]>([])
-const config = ref<AskConfig>({ endpoint: '', timeoutMs: 20000 })
 const messages = ref<ChatMessage[]>([
   {
     role: 'assistant',
-    content: '你好，我会先检索本站内容，再结合模型能力为你解答。'
+    content: '你好，我会先检索本站内容，再结合你选择的模型线路为你解答。'
   }
 ])
 
@@ -107,22 +109,9 @@ watch(
 )
 
 onMounted(async () => {
-  const [kbRes, cfgRes] = await Promise.all([
-    fetch('/knowledge-base.json').catch(() => null),
-    fetch('/ask-ai-config.json').catch(() => null)
-  ])
-
+  const kbRes = await fetch('/knowledge-base.json').catch(() => null)
   if (kbRes?.ok) {
     knowledge.value = await kbRes.json()
-  }
-
-  if (cfgRes?.ok) {
-    const parsed = await cfgRes.json()
-    config.value = {
-      endpoint: parsed.endpoint || '',
-      apiKey: parsed.apiKey || '',
-      timeoutMs: parsed.timeoutMs || 20000
-    }
   }
 })
 
@@ -160,24 +149,18 @@ function fallbackAnswer(query: string, refs: KnowledgeItem[]): string {
   }
 
   const bullets = refs.map((r, i) => `${i + 1}. ${r.title}：${r.snippet}`).join('\n')
-  return `基于站内检索与通用模型推理，我给你一个可执行答案：\n\n${bullets}\n\n建议下一步：\n- 先从第 1 条开始，今天做一个最小实践。`
+  return `当前模型接口不可用，我先给你站内检索结果：\n\n${bullets}\n\n建议下一步：\n- 先从第 1 条开始，今天做一个最小实践。`
 }
 
 async function askEndpoint(query: string, refs: KnowledgeItem[]): Promise<string | null> {
-  if (!config.value.endpoint) return null
-
-  const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), config.value.timeoutMs || 20000)
-
   try {
-    const res = await fetch(config.value.endpoint, {
+    const res = await fetch('/api/ask-ai', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        ...(config.value.apiKey ? { Authorization: `Bearer ${config.value.apiKey}` } : {})
+        'Content-Type': 'application/json'
       },
-      signal: controller.signal,
       body: JSON.stringify({
+        provider: provider.value,
         question: query,
         route: route.path,
         context: refs.map((r) => ({ title: r.title, path: r.path, snippet: r.snippet, content: r.content })),
@@ -193,8 +176,6 @@ async function askEndpoint(query: string, refs: KnowledgeItem[]): Promise<string
     return null
   } catch {
     return null
-  } finally {
-    clearTimeout(timer)
   }
 }
 
@@ -284,6 +265,20 @@ async function send() {
   margin: 4px 0 0;
   color: var(--vp-c-text-2);
   font-size: 12px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+select {
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-family: inherit;
 }
 
 .close-btn {
