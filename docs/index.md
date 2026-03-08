@@ -4,7 +4,7 @@ layout: home
 title: From Zero,To Next
 titleTemplate: AIGC 教程站
 hero:
-  name: "Zeroto 零点"
+  name: "Zero 零点"
   text: "从零开始，去往下一站"
   tagline: "首页按模块进入，点击后直接进入左侧目录文档页。"
   actions:

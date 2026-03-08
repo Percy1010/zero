@@ -48,7 +48,7 @@ function normalizeBaseUrl(baseUrl: string): string {
 function pickProviderConfig(provider: Provider, env: Env): ProviderConfig | null {
   const defaultPrompt =
     env.DEFAULT_SYSTEM_PROMPT ||
-    '你是 Zeroto 网站的学习助教。请优先基于站内文档回答，回答要准确、简洁，并给出可执行建议。'
+    '你是 Zero 网站的学习助教。请优先基于站内文档回答，回答要准确、简洁，并给出可执行建议。'
 
   if (provider === 'domestic') {
     if (!env.DOMESTIC_BASE_URL || !env.DOMESTIC_API_KEY || !env.DOMESTIC_MODEL) return null

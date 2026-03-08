@@ -141,7 +141,7 @@ function buildAiSidebar(): DefaultTheme.SidebarItem[] {
 }
 
 export default defineConfig({
-  title: 'Zeroto 零点',
+  title: 'Zero 零点',
   description: '职业人士教程站，第一版聚焦 AIGC。',
   lang: 'zh-CN',
   cleanUrls: true,
@@ -154,7 +154,7 @@ export default defineConfig({
     hostname: 'https://zeroto.pages.dev'
   },
   themeConfig: {
-    siteTitle: 'Zeroto 零点',
+    siteTitle: 'Zero 零点',
     nav: [
       { text: '首页', link: '/' },
       { text: 'AIGC 文档', link: '/ai/' },
@@ -166,7 +166,7 @@ export default defineConfig({
       '/news/': [{ text: '日报资讯', items: [{ text: '资讯首页', link: '/news/' }] }],
       '/community/': [{ text: '社媒交流', items: [{ text: '入口首页', link: '/community/' }] }]
     },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/Percy1010/zeroto' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/Percy1010/zero' }],
     outline: {
       label: '本页目录',
       level: [2, 3]
@@ -177,12 +177,12 @@ export default defineConfig({
       next: '下一篇'
     },
     editLink: {
-      pattern: 'https://github.com/Percy1010/zeroto/edit/main/docs/:path',
+      pattern: 'https://github.com/Percy1010/zero/edit/main/docs/:path',
       text: '编辑此页'
     },
     footer: {
       message: 'From Zero, To Next',
-      copyright: `Copyright © ${new Date().getFullYear()} Zeroto`
+      copyright: `Copyright © ${new Date().getFullYear()} Zero`
     }
   }
 })

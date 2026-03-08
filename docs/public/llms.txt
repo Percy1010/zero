@@ -1,6 +1,6 @@
-# Zeroto（零点）
+# Zero（零点）
 
-Zeroto is a Chinese tutorial website for professionals. The first domain is AIGC.
+Zero is a Chinese tutorial website for professionals. The first domain is AIGC.
 
 ## Primary Content
 
