@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Zero social card</title>
+  <desc id="desc">Zero AIGC tutorials for professionals.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4fbf7" />
+      <stop offset="100%" stop-color="#d7efe3" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#bg)" />
+  <circle cx="168" cy="154" r="84" fill="#0a7f52" opacity="0.12" />
+  <circle cx="1050" cy="120" r="110" fill="#0d9a64" opacity="0.1" />
+  <circle cx="1010" cy="520" r="150" fill="#46b98a" opacity="0.12" />
+  <rect x="74" y="74" width="1052" height="482" rx="28" fill="#ffffff" opacity="0.92" />
+  <text x="120" y="250" fill="#073d2c" font-family="Verdana, Geneva, sans-serif" font-size="88" font-weight="700">ZERO</text>
+  <text x="120" y="330" fill="#0a7f52" font-family="Verdana, Geneva, sans-serif" font-size="34" font-weight="700">AIGC tutorials for professionals</text>
+  <text x="120" y="392" fill="#2c4b40" font-family="Verdana, Geneva, sans-serif" font-size="28">Concepts, tools, prompt methods, cases, and resources.</text>
+  <rect x="120" y="448" width="188" height="56" rx="28" fill="#0a7f52" />
+  <text x="154" y="485" fill="#ffffff" font-family="Verdana, Geneva, sans-serif" font-size="28" font-weight="700">zeroto.pages.dev</text>
+</svg>

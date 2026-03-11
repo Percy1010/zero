@@ -9,7 +9,6 @@
 - `docs/news/index.md`：资讯页面
 - `docs/community/index.md`：社群入口
 - `docs/.vitepress/`：站点配置与主题
-- `functions/api/ask-ai.ts`：问 AI 后端接口（Cloudflare Pages Functions）
 
 ## 开发
 
@@ -22,4 +21,13 @@ npm run docs:dev
 
 ```bash
 npm run docs:build
+```
+
+## 质量检查
+
+```bash
+npm run lint
+npm run test
+# 或一次执行
+npm run check
 ```

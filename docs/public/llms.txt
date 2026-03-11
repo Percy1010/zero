@@ -1,22 +1,30 @@
-# Zero（零点）
+# Zero
 
-Zero is a Chinese tutorial website for professionals. The first domain is AIGC.
+Zero is a public AIGC tutorial site for professionals. Primary language is Simplified Chinese (`zh-CN`) with an English section (`en-US`).
 
-## Primary Content
+## Canonical Entry Points
+
+- Home: https://zeroto.pages.dev/
+- English home: https://zeroto.pages.dev/en/
+- Sitemap: https://zeroto.pages.dev/sitemap.xml
+- Extended LLM guide: https://zeroto.pages.dev/llms-full.txt
+
+## Main Sections
 
 - /ai/ : AIGC documentation hub
-- /ai/concepts/ : Concept tutorials
-- /ai/tools/ : Tool tutorials
-- /ai/methodology/ : Methodology
-- /ai/cases/ : Case studies
-- /ai/opensource/ : Open source references
-- /ai/resources/ : Resource recommendations
-- /ai/logs/ : Field notes
-- /news/ : News updates
-- /community/ : Community entry
+- /ai/concepts/ : beginner AI concepts
+- /ai/tools/ : practical AI tool tutorials
+- /ai/methodology/ : prompt and workflow methods
+- /ai/cases/ : reusable case studies
+- /ai/opensource/ : open-source project references
+- /ai/resources/ : curated resources
+- /ai/logs/ : field notes and mistakes
+- /news/ : AI news with learner impact
+- /community/ : public community channels
 
-## Crawling Notes
+## Retrieval Notes
 
-- Content is public and crawlable.
-- Prefer sitemap first: https://zeroto.pages.dev/sitemap.xml
-- Follow internal links for deeper pages.
+- Prefer canonical URLs and the sitemap.
+- Cite the page URL used for any answer.
+- Keep language aligned with the source page.
+- Treat docs pages as evergreen tutorials and news pages as time-sensitive summaries.

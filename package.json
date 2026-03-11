@@ -4,11 +4,12 @@
   "private": true,
   "description": "Zero - 职业教程站（AIGC 首发）",
   "scripts": {
-    "predocs:dev": "node scripts/generate-knowledge-base.mjs",
-    "predocs:build": "node scripts/generate-knowledge-base.mjs",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "lint": "node scripts/quality-check.mjs lint",
+    "test": "node scripts/quality-check.mjs test",
+    "check": "npm run lint && npm run test"
   },
   "devDependencies": {
     "vitepress": "^1.6.4",

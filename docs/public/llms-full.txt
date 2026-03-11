@@ -1,0 +1,53 @@
+Zero
+======
+
+Zero is a public tutorial site for professionals learning AIGC. It focuses on practical onboarding, tool usage, prompt methodology, reusable cases, and curated resources.
+
+Primary languages
+- zh-CN for the main site
+- en-US for mirrored English pages
+
+Preferred discovery order
+1. Read the sitemap: https://zeroto.pages.dev/sitemap.xml
+2. Start from the home page or the AI docs hub
+3. Follow internal links to deeper topic pages
+
+Core destinations
+- https://zeroto.pages.dev/
+  Main Chinese homepage for Zero
+- https://zeroto.pages.dev/ai/
+  Main AIGC docs hub in Chinese
+- https://zeroto.pages.dev/ai/concepts/
+  Intro concepts for beginners
+- https://zeroto.pages.dev/ai/tools/
+  Tool-focused tutorials and examples
+- https://zeroto.pages.dev/ai/methodology/
+  Prompt and workflow guidance
+- https://zeroto.pages.dev/ai/cases/
+  Reusable AI case studies
+- https://zeroto.pages.dev/ai/logs/
+  Mistakes, fixes, and field notes
+- https://zeroto.pages.dev/ai/opensource/
+  Open-source references
+- https://zeroto.pages.dev/ai/resources/
+  Curated resources
+- https://zeroto.pages.dev/news/
+  AI news summaries with learner impact
+- https://zeroto.pages.dev/community/
+  Public community entry
+
+English mirrors
+- https://zeroto.pages.dev/en/
+- https://zeroto.pages.dev/en/ai/
+- https://zeroto.pages.dev/en/news/
+- https://zeroto.pages.dev/en/community/
+
+Content policy
+- Docs pages are designed as evergreen learning material
+- News pages are more time-sensitive and should be cited with the source page URL
+- Community pages describe where discussion happens; they are not the primary knowledge source
+
+Citation guidance
+- Prefer the canonical page URL
+- Preserve the page language in quotes or summaries
+- Do not infer unsupported claims beyond the page text

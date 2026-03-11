@@ -7,3 +7,44 @@
 .vp-doc h1 {
   letter-spacing: 0.2px;
 }
+
+.VPSidebar .group {
+  border-top: none !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.VPSidebar .group + .group {
+  border-top: none !important;
+}
+
+/* Place locale switch between top nav menu and appearance toggle */
+@media (min-width: 960px) {
+  .VPNavBar .menu {
+    order: 10;
+  }
+
+  .VPNavBar .translations {
+    order: 25;
+  }
+
+  .VPNavBar .appearance {
+    order: 30;
+  }
+
+  .VPNavBar .social-links {
+    order: 40;
+  }
+
+  .VPNavBar .extra {
+    order: 50;
+  }
+}
+
+.concept-overview-plain-list {
+  margin-top: 16px;
+}
+
+.concept-overview-empty {
+  color: var(--vp-c-text-2);
+}
