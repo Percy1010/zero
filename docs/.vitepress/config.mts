@@ -51,12 +51,16 @@ const CONCEPT_PAGE_ORDER = [
   'what-is-prompt.md',
   'what-is-context.md',
   'what-is-memory.md',
+  'what-is-token.md',
+  'what-is-agent.md',
   'what-is-search.md',
   'what-is-rag.md',
-  'what-is-workflow.md',
-  'what-is-agent.md',
+  'what-is-function-calling.md',
   'what-is-mcp.md',
-  'what-is-function-calling.md'
+  'what-is-workflow.md',
+  'what-is-skill.md',
+  'what-is-subagent.md',
+  'what-is-a2a.md'
 ]
 
 function toPosix(p: string): string {
@@ -404,23 +408,13 @@ function buildAiSidebar(
     if (!fs.existsSync(sectionAbs)) continue
 
     const sectionText = humanize(section, labelMap)
-    const sectionLink = `/${relRoot}/${section}/`
-
-    if (section === 'concepts') {
-      const items = buildItems(sectionAbs, path.join(relRoot, section), 1, labelMap, overviewText)
-      if (!items.length) continue
-
-      sidebar.push({
-        text: sectionText,
-        collapsed: false,
-        items
-      })
-      continue
-    }
+    const items = buildItems(sectionAbs, path.join(relRoot, section), 1, labelMap, overviewText)
+    if (!items.length) continue
 
     sidebar.push({
       text: sectionText,
-      link: sectionLink
+      collapsed: false,
+      items
     })
   }
 
@@ -454,8 +448,8 @@ function buildOverviewItems(
   })
 }
 
-const zhAiSidebar = buildAiSidebar(AI_ROOT, 'ai', ZH_LABEL_MAP, '快速开始', '导读概览')
-const enAiSidebar = buildAiSidebar(AI_EN_ROOT, 'en/ai', EN_LABEL_MAP, 'Quick Start', 'Guide Overview')
+const zhAiSidebar = buildAiSidebar(AI_ROOT, 'ai', ZH_LABEL_MAP, '快速开始', '本章导读')
+const enAiSidebar = buildAiSidebar(AI_EN_ROOT, 'en/ai', EN_LABEL_MAP, 'Quick Start', 'Chapter Guide')
 const zhConceptOverview = buildOverviewItems(path.join(AI_ROOT, 'concepts'), 'ai/concepts', ZH_LABEL_MAP)
 const enConceptOverview = buildOverviewItems(
   path.join(AI_EN_ROOT, 'concepts'),

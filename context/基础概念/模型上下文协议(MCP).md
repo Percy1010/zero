@@ -1,15 +1,27 @@
----
-title: 模型上下文协议(MCP)
-description: 解释 MCP 是什么、为什么它像 AI 世界里的 USB-C、Host、Client、Server 三个角色怎么理解，以及它和 Function Calling 的关系。
----
-
 # 模型上下文协议(MCP)
 
 ## 一句话定义
 
 `MCP` 是 `Model Context Protocol` 的缩写，中文叫「模型上下文协议」。它是一套开放标准，用来统一 AI 应用如何连接外部工具和数据源。
 
-## 它和 Function Calling 的区别
+## 通俗理解
+
+### 类比 1: USB-C 接口
+
+MCP 想解决的是 `N × M` 套对接的问题: 让工具提供方按统一标准暴露能力，让支持 MCP 的 AI 应用可以更容易复用这些能力。
+
+### 类比 2: 联合国的通用翻译语言
+
+如果每个国家都要和其他所有国家单独配一套翻译，成本会爆炸。  
+如果大家都遵循一套中间协议，系统就会清晰很多。
+
+## MCP 的基本架构
+
+- `Host`: 你直接使用的应用
+- `Client`: Host 内负责和 MCP Server 通信的模块
+- `Server`: 暴露具体工具、资源或提示模板的一侧
+
+## MCP 和 Function Calling 的区别
 
 - `Function Calling` 是模型和宿主程序之间的格式约定
 - `MCP` 是宿主程序和工具服务之间的协议标准
