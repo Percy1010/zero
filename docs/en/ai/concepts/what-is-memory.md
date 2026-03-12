@@ -1,140 +1,75 @@
 ---
 title: Memory
-description: A beginner explanation of memory in AI systems, how it differs from context, how short-term and long-term memory work, and what practical memory strategies users can apply today.
+description: A deeper tutorial on memory in AI systems, including why models forget, how short-term and long-term memory work, common memory strategies, and practical value in support, education, CRM, and personal assistants.
 ---
 
 # Memory
 
-## One-Sentence Definition
+## 1. What Is It?
 
-`Memory` is the mechanism that lets a system preserve important information and reuse it later, instead of treating every interaction as a completely fresh start.
+### One-sentence definition
 
-## Intuitive Analogies
+`Memory` is the mechanism that allows an AI system to "remember" prior statements, user preferences, and important past facts. It is a key step in turning an agent from a one-shot answer machine into a more persistent assistant.
 
-### Analogy 1: A goldfish with a notebook
+## 2. Why Does AI Forget?
 
-The model itself is more like a goldfish: if you do not give it old information again, it does not naturally remember it. Memory is like giving that goldfish a notebook:
+LLMs are fundamentally closer to turn-based systems. In most products, the system sends "history + new message" back to the model every time.
 
-- save important information after the conversation
-- look it up next time
-- place the relevant part back into context
+This creates the illusion of memory. Once the history becomes too long and exceeds the context window, earlier information gets dropped, and the model seems to forget.
 
-The improvement is in the system, not in the model suddenly growing human-style memory.
+## 3. Types of Memory
 
-### Analogy 2: A hotel front desk note pad
+| Memory type | Human analogy | AI implementation | Characteristics |
+| --- | --- | --- | --- |
+| Short-term memory | what you are actively thinking about | session buffer / rolling window | small, fast, local to current conversation |
+| Long-term memory | accumulated experience | summaries, databases, knowledge graphs, vector stores | large, cross-session, persistent |
 
-The front desk cannot truly remember every guest, but it can keep notes:
-
-- this guest dislikes spicy food
-- this guest prefers a window room
-- this guest reported a problem last time
-
-When those notes are used later, the service feels personalized.
-
-## Common Types of Memory
-
-### Short-term memory
-
-Information kept during the current conversation or task.
-
-### Long-term memory
-
-Information preserved across multiple conversations.
-
-### Summary memory
-
-A compressed summary of a long history, used to save tokens while keeping the main points.
-
-## How Memory Works
-
-The core pattern is simple:
-
-1. save conversation history or key facts
-2. retrieve the relevant part before the next interaction
-3. place it back into the new context
-
-So memory does not mean "the model remembers internally." It means the surrounding system manages useful information for the model.
-
-## What Happens When Conversations Get Long
-
-Common strategies include:
-
-- sliding windows
-- summarization
-- extracting only key facts
-- storing full history externally and retrieving what matters
-
-## A Simple Contrast
-
-### Without memory
-
-Yesterday:
+## 4. Common Short-Term Memory Strategies
 
 ```text
-My name is Xiaoming and I work in e-commerce operations.
+1. Buffer memory
+2. Window memory
+3. Summary memory
 ```
 
-Today:
+Summary memory is often the most practical because it preserves important facts while controlling token usage.
 
-```text
-Please continue helping me with the problem from yesterday.
-```
+## 5. How Long-Term Memory Works
 
-The model may answer:
+1. detect information worth saving
+2. store it in a database or vector store
+3. retrieve it when relevant later
+4. place it back into context
 
-```text
-I am not sure which problem you mean. Please provide more detail.
-```
+## 6. Intuitive Analogies
 
-### With memory
+| Analogy | Meaning |
+| --- | --- |
+| Sticky notes | short-term memory |
+| Notebook / diary | long-term memory |
+| Brain vs external notebook | context window vs external store |
+| RAM vs hard drive | short-term fast and small, long-term slower and larger |
 
-If the system has already kept facts such as:
+## 7. Business Applications
 
-- the user works in e-commerce
-- the company is in Hangzhou
-- the current project is in pet food
+| Scenario | Memory use |
+| --- | --- |
+| Customer support | order history, complaint history, preferences |
+| Personal assistant | schedule, family info, food preferences |
+| Education AI | weak areas, progress, mistakes |
+| Sales CRM | communication history, intent, decision chain |
+| Health management | allergy history, medication records, goals |
 
-then future answers can be much more relevant immediately.
+## 8. What You Need to Remember
 
-## What You Can Do Today
+- memory is not just another name for chat history
+- its value is keeping important information active across turns and sessions
+- without memory, many agents remain short-lived and forgetful
 
-### Method 1: manual memory
+## 9. Recommended Reading
 
-Start important conversations with a stable block of background:
-
-```markdown
-## My information
-- Role: e-commerce operator
-- Industry: pet food
-- Current goal: expand Xiaohongshu channel
-- Preferred style: concise and direct
-```
-
-### Method 2: built-in product memory
-
-Many AI products now support cross-session memory, project knowledge, or preference saving. The system is handling memory management for you.
-
-### Method 3: your own context file
-
-You can maintain one personal background document and paste it when needed.
-
-## Common Business Uses
-
-- support: order history and complaint history
-- sales: budget, pain points, status
-- coaching: progress and weak areas
-- writing: brand tone and terminology
-- project management: stage, owners, next actions
-
-## What You Need to Remember
-
-- memory is not just raw chat history
-- it is about preserving information that should still matter later
-- better memory is selective and accurate, not simply larger
-
-## Sources
-
-- LangGraph Memory Overview
-  - https://langchain-ai.github.io/langgraph/concepts/memory/
-- Anthropic Claude Code Memory
-  - https://docs.anthropic.com/en/docs/claude-code/memory
+- Blog园 article: https://www.cnblogs.com/bonelee/p/18382383
+- Zhihu article: https://zhuanlan.zhihu.com/p/1938384459033448484
+- AWS article: https://aws.amazon.com/cn/blogs/china/agentic-ai-infrastructure-deep-practice-experience-thinking-series-three-best-practices-for-agent-memory-module/
+- CSDN article: https://blog.csdn.net/Attitude93/article/details/137006922
+- Mem0 article: https://apframework.com/blog/essay/2025-06-22-mem0

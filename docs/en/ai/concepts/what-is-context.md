@@ -1,131 +1,85 @@
 ---
 title: Context
-description: A beginner explanation of what context means in AI, how it differs from prompt and memory, why context windows matter, and how better context design improves results.
+description: A deeper tutorial on context and context windows, including what fits inside the window, why larger is not always better, and how context matters in support, documents, and code tasks.
 ---
 
 # Context
 
-## One-Sentence Definition
+## 1. What Is It?
 
-`Context` is all the information the model can currently see, use, and rely on while producing an answer.
+### One-sentence definition
 
-## Intuitive Analogies
+`Context` is all the information you provide to the model for the current interaction: the prompt, conversation history, references, retrieved documents, and tool outputs.  
+`Context Window` is the maximum amount of context the model can handle at one time.
 
-### Analogy 1: Visiting a doctor
+## 2. How It Works
 
-If you only say "I have a headache," the doctor has very little to work with. But if you add:
+The easiest analogy is a desk:
 
-- it has lasted for three days
-- it is on the right side
-- you have been sleeping badly
-- you had a scan last year
-- there is family history
+- the desk is the `Context Window`
+- the papers on the desk are the `Context`
+- a larger desk can hold more material
+- once the desk is full, something must be removed, compressed, or summarized
 
-those details make diagnosis much better. For a model, that added background is context.
-
-### Analogy 2: "Previously on..."
-
-A TV recap helps viewers quickly understand the current episode. That recap is context. Without it, you are dropped into the middle of the story with no orientation.
-
-The model feels the same way if you provide no background.
-
-## What Context Usually Includes
-
-A full model call may include:
-
-- system prompt
-- prior messages
-- uploaded files
-- retrieved documents
-- tool outputs
-- the user's current message
-
-So even when you think you only asked one sentence, the model may actually be seeing a much larger bundle of information.
-
-## Why Context Matters So Much
-
-Many quality problems are not really model problems. They are context problems.
-
-Typical failures include:
-
-- incomplete background
-- too much irrelevant material
-- weak structure
-- missing distinction between background and instruction
-
-## Context vs Prompt vs Memory
-
-- `Prompt`: the task brief
-- `Context`: everything the model currently sees
-- `Memory`: information the system keeps for later reuse
-
-A prompt is part of context, but context is broader. Memory is often inserted back into context, but the two are not the same concept.
-
-## The Key Limit: Context Window
-
-Every model has a limit on how much context it can handle at one time. This is called the context window.
-
-You can think of it as the number of seats around a table:
-
-- more information takes more seats
-- once the seats are full, something has to be removed
-- too much material is not only more expensive, it also makes focus worse
-
-This is one reason long conversations often feel like they "forget the beginning."
-
-## A Simple Contrast
-
-### Weak context
+## 3. What Is Actually Inside the Window?
 
 ```text
-Help me write a proposal.
+1. System prompt
+2. Conversation history
+3. Retrieved references
+4. Tool outputs
+5. The current user message
+6. The model's current answer generation
 ```
 
-The model does not know:
+All of these compete for the same limited space.
 
-- what kind of proposal
-- for whom
-- what tone
-- how long
+## 4. Example Window Sizes
 
-### Better context
+| Model | Context window | Rough intuition |
+| --- | --- | --- |
+| GPT-3 (2022) | ~4K tokens | a few pages |
+| GPT-3.5 | 16K tokens | a long article |
+| GPT-4 Turbo | 128K tokens | a short book |
+| Claude 3.5 | 200K tokens | multiple long documents |
+| Gemini 1.5 Pro | 1M+ tokens | a very large corpus |
 
-```text
-[Background] We are a startup selling premium pet food for cats.
-[Current status] We mainly sell on Taobao, with a small team and limited budget.
-[Need] Please write a 3-month social media marketing plan.
-[Requirement] It should be realistic and executable.
-```
+## 5. Key Insight: Bigger Is Not Always Better
 
-Now the model has a real working situation to reason from.
+A larger window often helps with longer conversations and longer documents, but it also brings tradeoffs:
 
-## Context Engineering
+- higher cost
+- heavier computation
+- more noise
+- weaker use of information in the middle of long contexts
 
-You can think of context engineering as designing what the model sees before it answers.
+## 6. Intuitive Analogies
 
-Practical rules:
+| Analogy | Meaning |
+| --- | --- |
+| Desk | how much material can be open at once |
+| Working memory | how much can be actively held |
+| RAM | active runtime information |
+| Spotlight | only what gets attention is truly used well |
 
-1. include only relevant information
-2. structure it with headings, lists, or tables
-3. place the most important parts at the front or the end
-4. clearly separate background from instruction
+## 7. Business Applications
 
-## Common Business Uses
+| Scenario | Why context matters |
+| --- | --- |
+| Customer support | remembers the current issue and prior constraints |
+| Document analysis | handles whole contracts or reports |
+| Long-form writing | keeps style and consistency |
+| Code review | sees more of the codebase at once |
 
-- customer support: manuals, FAQ, return policies
-- brand writing: voice, audience, competitor examples
-- analytics: metric definitions, history, business background
-- legal support: facts, statutes, case summaries
+## 8. What You Need to Remember
 
-## What You Need to Remember
+- `Context` is what the model can actually see
+- `Context Window` is how much it can see
+- many bad answers are not model problems but context-design problems
 
-- context is what the model can actually see right now
-- many poor answers are context problems
-- designing context well is often more powerful than just rephrasing the same question
+## 9. Recommended Reading
 
-## Sources
-
-- OpenAI Prompting Guide
-  - https://platform.openai.com/docs/guides/prompting
-- Anthropic Token Counting
-  - https://docs.anthropic.com/en/docs/build-with-claude/token-counting
+- IBM: https://www.ibm.com/think/topics/context-window
+- Zhihu explainer: https://zhuanlan.zhihu.com/p/15530206889
+- Context length vs context window: https://www.53ai.com/news/LargeLanguageModel/2024073165281.html
+- AI Bot encyclopedia: https://ai-bot.cn/what-is-context-window/

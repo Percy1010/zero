@@ -1,137 +1,90 @@
 ---
 title: Prompt
-description: A beginner-friendly explanation of what a prompt is, what a good prompt usually contains, why prompts change results so much, and how non-technical users can build reusable prompt templates.
+description: A deeper tutorial on prompts and prompt engineering, including structure, practical techniques, business use cases, and how better prompts improve model performance.
 ---
 
 # Prompt
 
-## One-Sentence Definition
+## 1. What Is It?
 
-A `Prompt` is everything you say to the AI: the task, the question, the background, the output format, and the constraints.
+### One-sentence definition
 
-## Intuitive Analogies
+A `Prompt` is the instruction, question, context, constraint, and output request you give to an AI model.  
+`Prompt Engineering` is the practice of designing and refining prompts so the model produces outputs that are more accurate, stable, and useful.
 
-### Analogy 1: Ordering food
+## 2. How It Works
 
-At a restaurant:
+If you assign a vague task to a colleague, the result is usually weak. If you explain the goal, style, audience, and format, the result is usually much better.
 
-- "Just bring me something" leads to unpredictable results
-- "One kung pao chicken, mildly spicy, less oil, rice packed separately" is much clearer
+LLMs work the same way. The clearer and less ambiguous the prompt is, the easier it is for the model to follow your intention.
 
-A prompt works the same way. The clearer you are, the more controllable the output becomes.
+## 3. A Complete Prompt Structure
 
-### Analogy 2: Briefing an intern
+```text
+1. Role
+2. Background / context
+3. Task instruction
+4. Output format
+5. Example
+```
 
-If you only say "write a proposal," the intern does not know:
+## 4. Core Techniques
 
-- what kind of proposal
-- who it is for
-- what tone to use
-- what length you want
-- what matters most
+| Technique | How | Best for |
+| --- | --- | --- |
+| Role prompting | "You are a senior lawyer" | More professional tone |
+| Chain of Thought | "Think step by step" | Complex reasoning |
+| Few-shot prompting | Give 2-3 examples | Style imitation |
+| Prompt chaining | Break work into multiple prompts | Long writing or complex analysis |
 
-A good prompt reduces that ambiguity.
+## 5. Intuitive Analogies
 
-## What a Good Prompt Often Contains
+- prompting is like ordering food
+- prompt engineering is like strong interviewing technique
+- a prompt is like entering a precise destination into navigation
 
-You do not always need every part, but these are common:
-
-1. role
-2. background
-3. task
-4. format requirements
-5. examples
-6. constraints
-
-## Why Prompts Matter
-
-The model does not read minds. It infers the task from the words you provide.
-
-When a prompt is vague, the model is more likely to:
-
-- misunderstand the task
-- miss the real priority
-- invent assumptions you did not ask for
-- produce unstable structure
-
-## A Simple Comparison
+## 6. Practical Example
 
 ### Weak prompt
 
 ```text
-Write an article for me.
+Write some copy for me.
 ```
-
-This leaves too many open questions.
 
 ### Better prompt
 
 ```text
-Write a public WeChat-style article about building a habit of
-waking up early, around 2000 words, for working professionals.
+You are a senior maternity e-commerce operator. We are launching a new
+baby wipe product with an organic, additive-free, ultra-soft positioning.
+Please write a Xiaohongshu-style promotional post:
+1. 150-200 words
+2. warm and conversational
+3. include at least 2 emoji
+4. end with 3 tags
 ```
 
-Better, but still not very controlled.
+Prompt engineering is rarely a one-shot act. It is usually:
 
-### Stronger prompt
+`draft -> test -> analyze -> iterate`
 
-```text
-# Role
-You are a personal growth writer with a humorous, grounded style.
+## 7. Business Use Cases
 
-# Task
-Write an article titled "Does waking up early really change your life?"
+| Scenario | Example |
+| --- | --- |
+| Standard support replies | Structure the response flow |
+| Weekly report generation | Format information into fixed sections |
+| Meeting notes | Extract agenda, decisions, owners, deadlines |
+| Data analysis | Summarize trends and produce actions |
 
-# Audience
-Working professionals aged 25-35 who stay up late and want to change.
+## 8. What You Need to Remember
 
-# Requirements
-1. Open with a short engaging story
-2. Give 3 practical actions
-3. End with one memorable line
+- a prompt is a task brief, not a magic spell
+- prompt engineering is mainly about reducing ambiguity
+- non-programmers can still drive strong outcomes through good prompting
 
-# Format
-- 2000-2500 words
-- 5 to 6 sections
-- warm and natural tone
-```
+## 9. Recommended Reading
 
-This is much easier for the model to execute well.
-
-## Common Techniques
-
-- `Zero-shot`: ask directly without examples
-- `Few-shot`: provide examples to imitate
-- `Chain of Thought`: ask for step-by-step reasoning
-- `Role Prompting`: assign a professional role
-- `Step-by-step`: break complex work into steps
-
-## How It Helps in Real Work
-
-- customer service: consistent tone and boundaries
-- hiring: structured resume review
-- content operations: reusable writing templates
-- meetings: extract decisions, owners, and deadlines
-- training: simulate an interviewer, customer, or coach
-
-## Why Prompt Leads to Later Concepts
-
-Prompt alone is often not enough. Real tasks usually also need:
-
-- `Context` for background
-- `Memory` for continuity
-- `Search / RAG` for extra information
-- `Workflow` for multi-step execution
-
-## What You Need to Remember
-
-- a prompt is not a magic spell, it is a task brief
-- the goal is clarity, not cleverness
-- clear role, task, background, constraints, and format usually improve output stability
-
-## Sources
-
-- OpenAI Prompting Guide
-  - https://platform.openai.com/docs/guides/prompting
-- Anthropic Prompt Engineering
-  - https://docs.anthropic.com/en/docs/prompt-engineering
+- Prompt Engineering Guide: https://www.promptingguide.ai/zh
+- Runoob prompt engineering: https://www.runoob.com/ai-agent/prompt-engineering.html
+- Alibaba Cloud prompt guide: https://help.aliyun.com/zh/model-studio/prompt-engineering-guide
+- GitHub prompt resources: https://github.com/yunwei37/Prompt-Engineering-Guide-zh-CN
